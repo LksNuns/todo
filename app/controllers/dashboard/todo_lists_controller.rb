@@ -1,4 +1,4 @@
-class Dashboard::TodoListsController < ApplicationController
+class Dashboard::TodoListsController < Dashboard::ApplicationController
 
   def index
   end
