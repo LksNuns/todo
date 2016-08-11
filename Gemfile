@@ -13,9 +13,17 @@ gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'rspec-rails', '~> 3.5'
+  gem 'spring-commands-rspec'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'capybara'
 end
 
 group :development do
+  gem 'pry-rails'
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
