@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160811221952) do
+ActiveRecord::Schema.define(version: 20160811230655) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "todo_lists", force: :cascade do |t|
     t.string  "title",                   null: false
-    t.boolean "private", default: false, null: false
+    t.boolean "privacy", default: false, null: false
     t.integer "user_id"
     t.index ["user_id"], name: "index_todo_lists_on_user_id", using: :btree
   end

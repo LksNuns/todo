@@ -4,7 +4,7 @@
 #
 #  id      :integer          not null, primary key
 #  title   :string           not null
-#  private :boolean          default(FALSE), not null
+#  privacy :boolean          default(FALSE), not null
 #  user_id :integer
 #
 # Indexes
