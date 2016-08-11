@@ -1,4 +1,19 @@
+<% if @todoList.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    <span class="sr-only">Error:</span>
+    <%= pluralize(@todoList.errors.count, "erro", "erros") %>
+    <ul>
+    <% @todoList.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+
+  </div>
+<% end %>
+
 <h2> Nova Lista </h2>
+
 <%= form_for [:dashboard, @todoList] do |f| %>
   <div class="form-group">
     <%= f.label :title, "Título" %>

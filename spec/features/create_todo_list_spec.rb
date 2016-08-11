@@ -1,15 +1,15 @@
 require 'rails_helper'
+require_relative '../support/new_todo_list_form'
 
 feature 'create new todo list' do
-  scenario 'create a new list with a valid data'do
-    visit('/dashboard/todo_lists/')
-    click_on('Nova Lista')
+  let(:new_todo_list_form) { NewTodoListForm.new }
 
-    fill_in('Título', with: 'Nova lista')
-    check("Privado")
-    click_on("Criar Lista")
+  scenario 'create a new list with a valid data'do
+
+    new_todo_list_form.visit_page.fill_in_with(title: "Nova lista").submit
 
     expect(page).to have_content('Nova Lista de tarefas criada')
     expect(TodoList.last.title).to eq('Nova lista')
   end
+
 end
