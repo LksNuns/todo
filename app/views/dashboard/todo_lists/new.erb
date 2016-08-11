@@ -1,0 +1,14 @@
+<h2> Nova Lista </h2>
+<%= form_for [:dashboard, @todoList] do |f| %>
+  <div class="form-group">
+    <%= f.label :title, "Título" %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :private, "Privado" %>
+    <%= f.check_box :private  %>
+  </div>
+
+  <%= f.submit "Criar Lista" %>
+
+<% end %>
