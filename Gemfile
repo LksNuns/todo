@@ -26,6 +26,7 @@ end
 
 group :development do
   gem 'pry-rails'
+  gem 'annotate', github: 'ctran/annotate_models'
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
