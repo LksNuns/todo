@@ -4,15 +4,23 @@ RSpec.describe TodoList, type: :model do
 
   describe 'validations' do
 
+    let(:user) { FactoryGirl.create(:user) }
+    let(:todo_list) { FactoryGirl.create(:todo_list, user: user) }
+
+    it 'with valid params' do
+      expect(todo_list).to be_valid
+    end
+
     it 'requires a title' do
-      todo_list = TodoList.new(title: "")
+      todo_list.title = nil
       expect(todo_list).to_not be_valid
     end
 
-    it 'requires a privacy' do
-      todo_list = TodoList.new(privacy: nil)
+    it 'requires a user' do
+      todo_list.user = nil
       expect(todo_list).to_not be_valid
     end
+
   end
 
   describe 'associations' do

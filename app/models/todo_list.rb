@@ -11,10 +11,6 @@
 #
 #  index_todo_lists_on_user_id  (user_id)
 #
-# Foreign Keys
-#
-#  fk_rails_c213597f32  (user_id => users.id)
-#
 
 class TodoList < ApplicationRecord
 
