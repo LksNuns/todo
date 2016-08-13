@@ -1,10 +1,10 @@
-<% if @todoList.errors.any? %>
+<% if @todo_list.errors.any? %>
   <div class="alert alert-danger" role="alert">
     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
     <span class="sr-only">Error:</span>
-    <%= pluralize(@todoList.errors.count, "erro", "erros") %>
+    <%= pluralize(@todo_list.errors.count, "erro", "erros") %>
     <ul>
-    <% @todoList.errors.full_messages.each do |message| %>
+    <% @todo_list.errors.full_messages.each do |message| %>
       <li><%= message %></li>
     <% end %>
     </ul>
@@ -14,7 +14,7 @@
 
 <h2> Nova Lista </h2>
 
-<%= form_for [:dashboard, @todoList] do |f| %>
+<%= form_for [:dashboard, @todo_list] do |f| %>
   <div class="form-group">
     <%= f.label :title, "Título" %>
     <%= f.text_field :title, class: "form-control" %>
@@ -24,6 +24,15 @@
     <%= f.check_box :privacy  %>
   </div>
 
-  <%= f.submit "Criar Lista" %>
+  <%= f.fields_for :tasks do |ff| %>
+    <div class="form-group">
+      <%= ff.check_box :done %>
+      <%= ff.text_field :body %>
+    </div>
+  <% end %>
 
+  <%= link_to "+ Nova Task", "#" %></br>
+
+
+  <%= f.submit "Criar Lista" %>
 <% end %>

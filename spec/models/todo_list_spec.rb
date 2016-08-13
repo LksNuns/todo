@@ -25,9 +25,14 @@ RSpec.describe TodoList, type: :model do
 
   describe 'associations' do
 
-    it 'expect that has belong_to user' do
+    it 'expect to has one user' do
       u = TodoList.reflect_on_association(:user)
       expect(u.macro).to  eq :belongs_to
+    end
+
+    it 'has many tasks' do
+      u = TodoList.reflect_on_association(:tasks)
+      expect(u.macro).to  eq :has_many
     end
 
   end

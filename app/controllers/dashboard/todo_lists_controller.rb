@@ -4,13 +4,14 @@ class Dashboard::TodoListsController < Dashboard::ApplicationController
   end
 
   def new
-    @todoList = TodoList.new
+    @todo_list = TodoList.new
+    @task = @todo_list.tasks.build
   end
 
   def create
-    @todoList = current_user.todo_lists.build(todo_list_params)
+    @todo_list = current_user.todo_lists.build(todo_list_params)
 
-    if @todoList.save
+    if @todo_list.save
       redirect_to dashboard_todo_lists_path, notice: "Nova Lista de tarefas criada"
     else
       render "new"
@@ -21,7 +22,7 @@ class Dashboard::TodoListsController < Dashboard::ApplicationController
   private
 
   def todo_list_params
-    params.require(:todo_list).permit(:title, :private)
+    params.require(:todo_list).permit(:title, :privacy, tasks_attributes: [:id, :_destroy, :body, :done])
   end
 
 end
