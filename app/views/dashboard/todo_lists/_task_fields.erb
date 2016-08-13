@@ -1,0 +1,8 @@
+  <div class="form-group">
+    <fieldset>
+      <%= f.check_box :done %>
+      <%= f.text_field :body %>
+      <%= f.hidden_field :_destroy %>
+      <%= link_to "Excluir", "#", class: "remove_fields" %>
+    </fieldset>
+  </div>

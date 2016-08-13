@@ -18,7 +18,6 @@ class Dashboard::TodoListsController < Dashboard::ApplicationController
     end
   end
 
-
   private
 
   def todo_list_params

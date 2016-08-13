@@ -24,15 +24,7 @@
     <%= f.check_box :privacy  %>
   </div>
 
-  <%= f.fields_for :tasks do |ff| %>
-    <div class="form-group">
-      <%= ff.check_box :done %>
-      <%= ff.text_field :body %>
-    </div>
-  <% end %>
-
-  <%= link_to "+ Nova Task", "#" %></br>
-
+  <%= link_to_add_fields "Nova Tarefa", f, :tasks %>
 
   <%= f.submit "Criar Lista" %>
 <% end %>

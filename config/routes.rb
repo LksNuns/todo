@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
 
   namespace :dashboard do
-    resources :todo_lists, only: [ :index, :new, :create ]
+    resources :todo_lists, only: [ :index, :new, :create ] do
+    end
   end
 end
