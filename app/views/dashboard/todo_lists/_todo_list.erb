@@ -1,0 +1,6 @@
+<h4><%= todo_list.title %></h4>
+<ul>
+  <% todo_list.tasks.each do |task| %>
+    <li><%= task.body %></li>
+  <% end %>
+</ul>

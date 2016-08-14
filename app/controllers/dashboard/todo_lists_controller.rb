@@ -13,10 +13,13 @@ class Dashboard::TodoListsController < Dashboard::ApplicationController
   def create
     @todo_list = current_user.todo_lists.build(todo_list_params)
 
-    if @todo_list.save
-      redirect_to dashboard_todo_lists_path, notice: "Nova Lista de tarefas criada"
-    else
-      render "new"
+    respond_to do |format|
+      if @todo_list.save
+        format.js {}
+        format.html { redirect_to dashboard_todo_lists_path, notice: "Nova Lista de tarefas criada" }
+      else
+        render "new"
+      end
     end
   end
 

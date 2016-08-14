@@ -11,3 +11,10 @@ $(document).on('click', 'form .add_fields', function(event) {
   $('#tasks').append($(this).data('fields').replace(regexp, time));
   return event.preventDefault();
 });
+
+$(document).on('submit', 'form', function(event) {
+  $('form')[0].reset();
+  $('#tasks').empty();
+  $('#todolist-modal').modal('hide');
+  return false;
+})
