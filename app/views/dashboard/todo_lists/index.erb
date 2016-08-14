@@ -1,3 +1,19 @@
+<header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="pull-left">
+          <h1 class="header-title">Lista Todo</h1>
+        </div>
+        <div class="pull-right">
+          <a href="#" class="btn btn-success show-todolist-modal" data-toggle="modal" data-target="#todolist-modal">Criar uma nova lista</a>
+        </div>
+      </div>
+      <%= render partial: "new_modal" %>
+    </div>
+  </div>
+</header>
+
 <% if flash[:notice] %>
   <div class="alert alert-info"><%= flash[:notice] %></div>
 <% end %>

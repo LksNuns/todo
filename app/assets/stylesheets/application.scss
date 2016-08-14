@@ -1,2 +1,38 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
+@import "switch_checkbox";
+
+.navbar-inverse {
+  margin-bottom: 0;
+}
+
+.navbar .navbar-brand {
+  font-size: 20px;
+  color: #eee;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+}
+
+header {
+  background: #3e4249 url('grey_wash_wall.png');
+  color: #ccc;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #080808;
+}
+
+h1.header-title {
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: -2px;
+}
+
+.pull-right .btn {
+  margin: 20px 0 10px;
+}
+
+.title-model {
+  color: #3e3e3e;
+  text-transform: uppercase;
+}

@@ -8,6 +8,6 @@ $(document).on('click', 'form .remove_fields', function(event) {
 $(document).on('click', 'form .add_fields', function(event) {
   time = new Date().getTime();
   regexp = new RegExp($(this).data('id'), 'g');
-  $(this).before($(this).data('fields').replace(regexp, time));
+  $('#tasks').append($(this).data('fields').replace(regexp, time));
   return event.preventDefault();
 });

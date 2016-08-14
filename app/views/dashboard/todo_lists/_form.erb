@@ -1,0 +1,14 @@
+<%= form_for [:dashboard, @todo_list] do |f| %>
+  <div class="form-group">
+    <%= f.label :title, "Título" %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :privacy, "Privado" %>
+    <%= f.check_box :privacy  %>
+  </div>
+  <h2> Tarefas </h2>
+  <%= link_to_add_fields "Nova Tarefa", f, :tasks %>
+</br>
+  <%= f.submit "Criar Lista" %>
+<% end %>

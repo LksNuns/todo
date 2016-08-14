@@ -2,6 +2,7 @@ class Dashboard::TodoListsController < Dashboard::ApplicationController
 
   def index
     @todo_lists = current_user.todo_lists
+    @todo_list = TodoList.new
   end
 
   def new

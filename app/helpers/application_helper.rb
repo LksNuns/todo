@@ -7,10 +7,4 @@ module ApplicationHelper
     end
     link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
   end
-
-  def link_to_new_task(title, f)
-    fields = render partial: "task_fields", locals: {f: f, child_index: Time.now.to_i }
-    link_to title, '#', class: "add_fields", data: { fields: fields.gsub("\n", "") }
-  end
-
 end
