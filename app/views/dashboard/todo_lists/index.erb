@@ -1,7 +1,15 @@
 <% if flash[:notice] %>
   <div class="alert alert-info"><%= flash[:notice] %></div>
 <% end %>
-
 <h1> Meus ToDos </h1>
+
+<% @todo_lists.each do |todo_list| %>
+  <h4><%= todo_list.title %></h4>
+  <ul>
+    <% todo_list.tasks.each do |task| %>
+      <li><%= task.body %></li>
+    <% end %>
+  </ul>
+<% end %>
 
   <%= link_to "Nova Lista", new_dashboard_todo_list_path, class: "btn btn-primary" %>
