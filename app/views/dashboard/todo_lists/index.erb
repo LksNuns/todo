@@ -9,7 +9,7 @@
           <a href="#" class="btn btn-success show-todolist-modal" data-toggle="modal" data-target="#todolist-modal">Criar uma nova lista</a>
         </div>
       </div>
-      <%= render partial: "new_modal" %>
+      <div class="modal fade" id="todolist-modal" tabindex="-1" role="dialog"></div>
     </div>
   </div>
 </header>
@@ -19,8 +19,8 @@
 <% end %>
 <h1> Meus ToDos </h1>
 
-<div id="todo_lists">
+<ul id="todo_lists">
   <% @todo_lists.each do |todo_list| %>
     <%= render partial: "todo_list", locals: { todo_list: todo_list } %>
   <% end %>
-</div>
+</ul>

@@ -23,6 +23,31 @@ class Dashboard::TodoListsController < Dashboard::ApplicationController
     end
   end
 
+  def edit
+    @todo_list = TodoList.find(params[:id])
+    respond_to do |format|
+      format.js { render 'ajax_form' }
+    end
+  end
+
+  def update
+    @todo_list = TodoList.find(params[:id])
+    if @todo_list.update(todo_list_params)
+      respond_to do |format|
+        format.js {}
+      end
+    else
+      render :edit
+    end
+  end
+
+
+  # def destroy
+  #   @product.destroy
+  #   redirect_to products_path, notice: 'Producto Removido'
+  # end
+
+
   private
 
   def todo_list_params

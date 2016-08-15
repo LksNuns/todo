@@ -1,14 +1,27 @@
-<%= form_for [:dashboard, @todo_list] do |f| %>
-  <div class="form-group">
-    <%= f.label :title, "Título" %>
-    <%= f.text_field :title, class: "form-control" %>
+<div class="modal-dialog" role="document">
+  <div id="todo-modal-content" class="modal-content">
+    <%= form_for [:dashboard, @todo_list], remote: true do |f| %>
+      <div class="modal-body">
+          <div class="form-group">
+            <%= f.text_field :title, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.check_box :privacy, { class:"tgl tgl-flip" }  %>
+            <%= f.label :privacy, "_", class: "tgl-btn", data: { "tg-on": "Privado", "tg-off": "Público" } %>
+          </div>
+          <h3 class="title-model"> Tarefas </h3>
+          <div id="tasks">
+          <%= f.fields_for :tasks do |ff| %>
+            <%= render 'task_fields', f: ff %>
+          <% end %>
+          </div>
+          <%= link_to_add_fields("Nova Tarefa", f, :tasks) %>
+        </br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        <%= f.submit "Criar Lista", class: "btn btn-primary" %>
+      </div>
+    <% end %>
   </div>
-  <div class="form-group">
-    <%= f.label :privacy, "Privado" %>
-    <%= f.check_box :privacy  %>
-  </div>
-  <h2> Tarefas </h2>
-  <%= link_to_add_fields "Nova Tarefa", f, :tasks %>
-</br>
-  <%= f.submit "Criar Lista" %>
-<% end %>
+</div>

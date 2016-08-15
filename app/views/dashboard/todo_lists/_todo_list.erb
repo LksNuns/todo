@@ -1,6 +1,14 @@
-<h4><%= todo_list.title %></h4>
-<ul>
-  <% todo_list.tasks.each do |task| %>
-    <li><%= task.body %></li>
-  <% end %>
-</ul>
+<%= link_to edit_dashboard_todo_list_path(todo_list.id), remote: true, id:"todo_list_id_#{todo_list.id}" do %>
+  <div class="to-do-list font-space-todo">
+    <h2><%= todo_list.title %></h2>
+    <hr>
+    <ul>
+      <% todo_list.tasks.each do |task| %>
+        <li>
+      		<input id="checkbox1" type="checkbox" checked>
+      		<label for="checkbox1"><%= task.body %></label>
+      	</li>
+      <% end %>
+    </ul>
+</div>
+<% end %>

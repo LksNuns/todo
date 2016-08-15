@@ -17,4 +17,4 @@ $(document).on('submit', 'form', function(event) {
   $('#tasks').empty();
   $('#todolist-modal').modal('hide');
   return false;
-})
+});
