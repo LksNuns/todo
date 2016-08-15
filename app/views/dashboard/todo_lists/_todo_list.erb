@@ -1,7 +1,13 @@
 <main id=todo_list_id_<%= todo_list.id %>>
   <header>
     <h3 class="title-todo"><%= todo_list.title %></h3>
-    <span class="s-public">Publico</span>
+
+    <% if todo_list.privacy %>
+      <span class="s-private">Privado</span>
+    <% else %>
+    <span class="s-public">Público</span>
+    <% end %>
+
     <span></span>
     <div class="task-indicators">
       <%= link_to dashboard_todo_list_path(todo_list.id), method: :delete, class: "static-link", remote: true do %>

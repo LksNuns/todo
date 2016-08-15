@@ -1,5 +1,5 @@
 class Dashboard::TodoListsController < Dashboard::ApplicationController
-
+  before_action :find_todo, only: [ :edit, :update, :destroy ]
   def index
     @todo_lists = current_user.todo_lists
     @todo_list = TodoList.new
@@ -28,14 +28,12 @@ class Dashboard::TodoListsController < Dashboard::ApplicationController
   end
 
   def edit
-    @todo_list = TodoList.find(params[:id])
     respond_to do |format|
       format.js { render 'ajax_form' }
     end
   end
 
   def update
-    @todo_list = TodoList.find(params[:id])
     if @todo_list.update(todo_list_params)
       respond_to do |format|
         format.js {}
@@ -44,7 +42,6 @@ class Dashboard::TodoListsController < Dashboard::ApplicationController
   end
 
   def destroy
-    @todo_list = TodoList.find(params[:id])
     @todo_list.destroy
     respond_to do |format|
       format.js {}
@@ -56,6 +53,10 @@ class Dashboard::TodoListsController < Dashboard::ApplicationController
 
   def todo_list_params
     params.require(:todo_list).permit(:title, :privacy, tasks_attributes: [:id, :_destroy, :body, :done])
+  end
+
+  def find_todo
+    @todo_list = current_user.todo_lists.find(params[:id])
   end
 
 end

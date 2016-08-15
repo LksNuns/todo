@@ -3,13 +3,14 @@ class NewTodoListForm
 
   def visit_page
     visit('/dashboard/todo_lists/')
-    click_on('Nova Lista')
+    click_on('Criar uma nova lista')
     self
   end
 
   def fill_in_with(params = {})
-    fill_in('Título', with: params.fetch(:title, 'Nova lista'))
-    check("Privado")
+    within("#new_todo_list") do
+      click_on("Público")
+    end
     self
   end
 

@@ -1,1 +1,1 @@
-$('#todo_lists').append('<%= j render(@todo_list) %>');
+$('<%= j render(@todo_list) %>').prependTo('#todo_lists').hide().fadeIn(1000);

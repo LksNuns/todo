@@ -24,7 +24,9 @@ group :development, :test do
 end
 
 group :test do
+  gem "capybara-webkit"
   gem 'capybara'
+  gem 'capybara-webkit'
 end
 
 group :development do
