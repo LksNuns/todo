@@ -7,7 +7,11 @@ class Dashboard::TodoListsController < Dashboard::ApplicationController
 
   def new
     @todo_list = TodoList.new
-    @task = @todo_list.tasks.build
+
+    respond_to do |format|
+      format.html { redirect_to 'new' }
+      format.js { render 'ajax_form' }
+    end
   end
 
   def create
@@ -36,16 +40,16 @@ class Dashboard::TodoListsController < Dashboard::ApplicationController
       respond_to do |format|
         format.js {}
       end
-    else
-      render :edit
     end
   end
 
-
-  # def destroy
-  #   @product.destroy
-  #   redirect_to products_path, notice: 'Producto Removido'
-  # end
+  def destroy
+    @todo_list = TodoList.find(params[:id])
+    @todo_list.destroy
+    respond_to do |format|
+      format.js {}
+    end
+  end
 
 
   private

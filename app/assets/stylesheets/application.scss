@@ -1,8 +1,10 @@
+@import "bourbon";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
 @import "switch_checkbox";
 @import "todo_list";
+@import "index_todo";
 @import "masonry/transitions";
 
 .navbar-inverse {
@@ -16,7 +18,7 @@
   text-transform: uppercase;
 }
 
-header {
+header.create-todo {
   background: #3e4249 url('grey_wash_wall.png');
   color: #ccc;
   padding: 15px;

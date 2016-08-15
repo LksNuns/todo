@@ -71,12 +71,12 @@
 
 		&:after {
 			content: attr(data-tg-on);
-			background: #02C66F;
+			background: #FF3A19;
 			transform: rotateY(-180deg);
 		}
 
 		&:before {
-			background: #FF3A19;
+			background: #02C66F;
 			content: attr(data-tg-off);
 		}
 
@@ -93,11 +93,48 @@
     &:after {
       transform: rotateY(0);
       left: 0;
-      background: #7FC6A6;
+      background: #FF3A19;
     }
 
     &:active:after {
       transform: rotateY(20deg);
     }
 	}
+}
+
+
+.s-private {
+	margin: 8px;
+	padding: 2px;
+	float: right;
+	display: inline-block;
+	width: auto;
+	text-align: center;
+	line-height: 1.4em;
+	font-size: 11px;
+	font-weight: bold;
+	color: #fff;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-radius: 4px;
+	background: #FF3A19;
+}
+
+.s-public {
+	margin: 8px;
+	padding: 2px;
+	float: right;
+	display: inline-block;
+	width: auto;
+	text-align: center;
+	line-height: 1.4em;
+	font-size: 11px;
+	font-weight: bold;
+	color: #fff;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-radius: 4px;
+	background: #02C66F;
 }

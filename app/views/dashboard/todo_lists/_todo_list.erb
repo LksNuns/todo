@@ -1,14 +1,41 @@
-<%= link_to edit_dashboard_todo_list_path(todo_list.id), remote: true, id:"todo_list_id_#{todo_list.id}" do %>
-  <div class="to-do-list font-space-todo">
-    <h2><%= todo_list.title %></h2>
-    <hr>
+<main id=todo_list_id_<%= todo_list.id %>>
+  <header>
+    <h3 class="title-todo"><%= todo_list.title %></h3>
+    <span class="s-public">Publico</span>
+    <span></span>
+    <div class="task-indicators">
+      <%= link_to dashboard_todo_list_path(todo_list.id), method: :delete, class: "static-link", remote: true do %>
+        <%= fa_icon "trash 2x" %>
+      <% end %>
+    </div>
+  </header>
+
+  <%= link_to edit_dashboard_todo_list_path(todo_list.id), class: "static-link", remote: true do %>
+  <section class="task-list current">
     <ul>
+
       <% todo_list.tasks.each do |task| %>
         <li>
-      		<input id="checkbox1" type="checkbox" checked>
-      		<label for="checkbox1"><%= task.body %></label>
-      	</li>
+          <div class="checkbox">
+            <div class="check">
+                <% if task.done %>
+                  <div class="check-on">
+                    <%= fa_icon "check-square-o" %>
+                  </div>
+                  <% else %>
+                    <div class="check-on">
+                      <%= fa_icon "square-o" %>
+                    </div>
+                  <% end %>
+            </div>
+            <div class="label">
+              <mark><%= task.body %></mark>
+            </div>
+          </div>
+        </li>
       <% end %>
+
     </ul>
-</div>
-<% end %>
+  </section>
+  <% end %>
+</main>

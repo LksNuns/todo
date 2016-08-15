@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root "home#index"
 
   namespace :dashboard do
-    resources :todo_lists, only: [ :index, :new, :create, :edit, :update ] do
-    end
+    resources :todo_lists
   end
 end

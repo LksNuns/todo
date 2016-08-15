@@ -8,6 +8,7 @@ gem 'bootstrap-sass'
 gem 'uglifier', '>= 1.3.0'
 gem 'font-awesome-rails'
 gem 'masonry-rails'
+gem 'bourbon'
 
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'

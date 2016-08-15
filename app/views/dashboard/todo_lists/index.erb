@@ -3,10 +3,10 @@
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <div class="pull-left">
-          <h1 class="header-title">Lista Todo</h1>
+          <h1 class="header-title">Meus Todos</h1>
         </div>
         <div class="pull-right">
-          <a href="#" class="btn btn-success show-todolist-modal" data-toggle="modal" data-target="#todolist-modal">Criar uma nova lista</a>
+          <%= link_to "Criar uma nova lista", new_dashboard_todo_list_path, class: "btn btn-success", remote: true %>
         </div>
       </div>
       <div class="modal fade" id="todolist-modal" tabindex="-1" role="dialog"></div>
@@ -17,7 +17,6 @@
 <% if flash[:notice] %>
   <div class="alert alert-info"><%= flash[:notice] %></div>
 <% end %>
-<h1> Meus ToDos </h1>
 
 <ul id="todo_lists">
   <% @todo_lists.each do |todo_list| %>
