@@ -1,6 +1,6 @@
 <div class="modal-dialog" role="document">
   <div id="todo-modal-content" class="modal-content">
-    <%= form_for [:dashboard, @todo_list], remote: true do |f| %>
+    <%= form_for [:dashboard, @todo_list], class:"todo_form", remote: true do |f| %>
       <div class="modal-body">
           <div class="form-group">
             <%= f.text_field :title, class: "form-control" %>

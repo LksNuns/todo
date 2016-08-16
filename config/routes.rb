@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   namespace :dashboard do
     resources :todo_lists
+    resources :public_todos, only: [ :index ]
   end
 end

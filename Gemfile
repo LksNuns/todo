@@ -7,14 +7,13 @@ gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'
 gem 'uglifier', '>= 1.3.0'
 gem 'font-awesome-rails'
-gem 'masonry-rails'
+gem 'devise'
 gem 'bourbon'
 
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
-gem 'devise'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -24,9 +23,7 @@ group :development, :test do
 end
 
 group :test do
-  gem "capybara-webkit"
   gem 'capybara'
-  gem 'capybara-webkit'
 end
 
 group :development do

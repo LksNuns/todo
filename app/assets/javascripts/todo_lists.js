@@ -12,7 +12,7 @@ $(document).on('click', 'form .add_fields', function(event) {
   return event.preventDefault();
 });
 
-$(document).on('submit', 'form', function(event) {
+$(document).on('submit', '#todo-modal-content form', function(event) {
   $('form')[0].reset();
   $('#tasks').empty();
   $('#todolist-modal').modal('hide');

@@ -20,8 +20,9 @@ main{
     text-align: justify;
     color: $color4;
     line-height: 0;
-    padding: 5px 5%;
+    padding: 5px 5px;
     position: relative;
+    min-height: 30px;
 
     span, h3, .task-indicators {
       display: inline-block;
@@ -237,8 +238,10 @@ a.static-link:hover, a.static-link:visited, a.static-link:link, a.static-link:ac
   vertical-align: middle;
 }
 
-.status {
-
+.author {
+  text-align: right;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 // ANIMATIONS //

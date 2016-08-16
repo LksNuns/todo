@@ -20,5 +20,6 @@ class TodoList < ApplicationRecord
 
   validates :title, presence: true
 
+  scope :all_publics, -> { where(privacy: false) }
 
 end

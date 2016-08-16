@@ -1,0 +1,35 @@
+<main id=todo_list_id_<%= todo_list.id %>>
+  <header>
+    <h3 class="title-todo"><%= todo_list.title %></h3>
+
+    <span></span>
+  </header>
+
+  <section class="task-list current">
+    <ul>
+
+      <% todo_list.tasks.each do |task| %>
+        <li>
+          <div class="checkbox">
+            <div class="check">
+              <% if task.done %>
+                <div class="check-on">
+                  <%= fa_icon "check-square-o" %>
+                </div>
+              <% else %>
+                <div class="check-on">
+                  <%= fa_icon "square-o" %>
+                </div>
+              <% end %>
+            </div>
+            <div class="label">
+              <mark><%= task.body %></mark>
+            </div>
+          </div>
+        </li>
+      <% end %>
+
+    </ul>
+    <div class="author">by <%= todo_list.user.email %></div>
+  </section>
+</main>
