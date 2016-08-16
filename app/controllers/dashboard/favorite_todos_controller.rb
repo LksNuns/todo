@@ -1,13 +1,17 @@
 class Dashboard::FavoriteTodosController < Dashboard::ApplicationController
 
-  before_action :find_params
+  before_action :find_params, except: [ :index ]
+
+  def index
+    @favorite_todos = current_user.favorite_todos.all
+  end
+
 
   def create
 
     unless @favorite
-      @favorite = current_user.favorite_todos.build(todo_list: @todo_list)
+      @favorite = current_user.favorite_todos_association.build(todo_list: @todo_list)
     end
-
 
     respond_to do |format|
       if @favorite.save
@@ -18,9 +22,8 @@ class Dashboard::FavoriteTodosController < Dashboard::ApplicationController
   end
 
   def destroy
-    @favorite = FavoriteTodo.find_by({ user: current_user, todo_list: @todo_list })
+    @favorite = current_user.favorite_todos_association.find_by(todo_list: @todo_list)
     @favorite.destroy
-    e = @todo_list.title
     respond_to do |format|
       format.js { render 'toggle_favorite' }
     end

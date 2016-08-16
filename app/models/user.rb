@@ -23,12 +23,12 @@
 #
 
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  alias_attribute :favorite_todos_association, :favorite_users_todos
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :todo_lists, dependent: :destroy
-  has_many :favorite_todos, dependent: :destroy
-
+  has_many :favorite_users_todos, dependent: :destroy
+  has_many :favorite_todos, through: :favorite_users_todos, source: :todo_list
 end

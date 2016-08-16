@@ -22,12 +22,15 @@ main{
     line-height: 0;
     padding: 5px 5px;
     position: relative;
-    min-height: 30px;
+    min-height: 35px;
 
     span, h3, .task-indicators {
       display: inline-block;
       width: auto;
-      font-size: 16px;
+      font-size: 20px;
+      margin: auto;
+      float: right;
+      text-align: center;
     }
 
     h3 {
@@ -40,7 +43,7 @@ main{
     }
 
     .task-indicators {
-      font-size: 10px;
+      font-size: 11px;
 
       span {
         padding: 0 8px;
@@ -55,11 +58,6 @@ main{
       }
     }
 
-    &:after {
-      content: '';
-      display: inline-block;
-      width: 100%;
-    }
   }
 }
 
@@ -94,10 +92,6 @@ mark {
     max-width: 150px;
   }
 
-  .label > mark {
-    font-size: 14px;
-  }
-
   .check {
     position: relative;
   }
@@ -110,18 +104,12 @@ mark {
   color: $color4;
   padding: 15px 25px;
 
-
   mark {
     color: $color4;
     display: inline-block;
     margin-bottom: 3px;
+    font-size: 14px;
   }
-
-  time {
-    font-weight: 300;
-    font-size: 12px;
-  }
-
 
   h2 {
     margin: 10px 0;
@@ -157,29 +145,6 @@ mark {
         direction: ltr;
         text-align: left;
         opacity: 1;
-      }
-
-      .task-msg {
-        @include transform(translate3d(0, -50%, 0));
-        right: 40px;
-        top: 47%;
-        position: absolute;
-        text-transform: uppercase;
-        font-size: 12px;
-        opacity: 0;
-      }
-
-      /* CHECKED STYLE */
-      // The following class is added to the <li> item when the relative checkbox get checked
-      &.task-checked {
-
-        .task-msg {
-          @include animation(fadeInOut 2s);
-        }
-
-        .label {
-          opacity: 0.5;
-        }
       }
     }
   }
@@ -220,15 +185,6 @@ mark {
       color: lighten($color1, 35%);
     }
 
-    .checkbox {
-      input[type="checkbox"] {
-        + .ripple-container {
-          .check-off {
-            border: 2px solid $color4;
-          }
-        }
-      }
-    }
   }
 }
 
@@ -242,27 +198,4 @@ a.static-link:hover, a.static-link:visited, a.static-link:link, a.static-link:ac
   text-align: right;
   font-size: 12px;
   font-weight: bold;
-}
-
-// ANIMATIONS //
-@include keyframes(fadeInOut) {
-  0% {
-    opacity: 0;
-    @include transform(translate3d(10px, -50%, 0));
-  }
-
-  30% {
-    opacity: 1;
-    @include transform(translate3d(0, -50%, 0));
-  }
-
-  75% {
-    opacity: 1;
-    @include transform(translate3d(0, -50%, 0));
-  }
-
-  100% {
-    opacity: 0;
-    @include transform(translate3d(-10px, -50%, 0));
-  }
 }
