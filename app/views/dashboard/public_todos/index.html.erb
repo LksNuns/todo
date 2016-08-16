@@ -1,3 +1,4 @@
+ <h2>Listas Publicas</h2>
 <ul id="public_todo_lists">
   <% @todo_lists.each do |todo_list| %>
     <%= render partial: "dashboard/shared/todo_list_public", locals: { todo_list: todo_list } %>

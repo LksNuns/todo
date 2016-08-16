@@ -2,39 +2,27 @@ require 'rails_helper'
 
 RSpec.describe TodoList, type: :model do
 
-  describe 'validations' do
+  describe 'associations' do
+    it { should belong_to(:user) }
+    it { should have_many(:tasks).dependent(:destroy) }
+    it { should have_many(:favorite_users_todos).dependent(:destroy) }
+    it { should have_many(:follow_users) }
+  end
 
+  describe 'with data' do
     let(:user) { FactoryGirl.create(:user) }
     let(:todo_list) { FactoryGirl.create(:todo_list, user: user) }
+    let(:todo_list2) { FactoryGirl.create(:private_todo, user: user) }
 
-    it 'with valid params' do
-      expect(todo_list).to be_valid
+    it 'all_publics return just publics todos' do
+      public_todos = TodoList.all_publics
+
+      expect(public_todos).to include(todo_list)
+      expect(public_todos).to_not include(todo_list2)
     end
 
-    it 'requires a title' do
-      todo_list.title = nil
-      expect(todo_list).to_not be_valid
-    end
-
-    it 'requires a user' do
-      todo_list.user = nil
-      expect(todo_list).to_not be_valid
-    end
+    it { should validate_presence_of(:title) }
+    it { should accept_nested_attributes_for(:tasks) }
 
   end
-
-  describe 'associations' do
-
-    it 'expect to has one user' do
-      u = TodoList.reflect_on_association(:user)
-      expect(u.macro).to  eq :belongs_to
-    end
-
-    it 'has many tasks' do
-      u = TodoList.reflect_on_association(:tasks)
-      expect(u.macro).to  eq :has_many
-    end
-
-  end
-
 end

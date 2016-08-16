@@ -4,7 +4,7 @@
 
     <span></span>
     <span>
-      <% if current_user.favorite_todos.exists? todo_list %>
+      <% if current_user.favorite_todos.include? todo_list %>
         <%= link_to dashboard_favorite_todo_path(todo_list.id), method: :delete, remote: true do %>
           <%= fa_icon "star", class: "fav-check" %>
         <% end %>

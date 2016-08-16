@@ -14,10 +14,8 @@
 
 class TodoList < ApplicationRecord
 
-  has_many :tasks, inverse_of: :todo_list, dependent: :destroy
-  has_many :favorite_todos, dependent: :destroy
-
   belongs_to :user
+  has_many :tasks, inverse_of: :todo_list, dependent: :destroy
 
   has_many :favorite_users_todos, dependent: :destroy
   has_many :follow_users, through: :favorite_users_todos, source: :user
@@ -28,6 +26,5 @@ class TodoList < ApplicationRecord
   scope :all_publics, -> { where(privacy: false) }
 
   validates :title, presence: true
-
-
+  
 end

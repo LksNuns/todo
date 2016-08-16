@@ -1,7 +1,11 @@
 FactoryGirl.define do
   factory :todo_list do
-    title "New Todo"
+    sequence(:title) { |n| "title#{n}" }
     privacy false
-    user_id 1
+
+    factory :private_todo do
+      privacy true
+    end
+
   end
 end
