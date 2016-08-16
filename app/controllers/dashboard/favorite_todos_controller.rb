@@ -3,7 +3,7 @@ class Dashboard::FavoriteTodosController < Dashboard::ApplicationController
   before_action :find_params, except: [ :index ]
 
   def index
-    @favorite_todos = current_user.favorite_todos.all
+    @favorite_todos = current_user.favorite_todos.all_publics
   end
 
 
