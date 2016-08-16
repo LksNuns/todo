@@ -29,4 +29,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :todo_lists, dependent: :destroy
+  has_many :favorite_todos, dependent: :destroy
+
 end

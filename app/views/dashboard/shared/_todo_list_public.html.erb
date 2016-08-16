@@ -3,6 +3,19 @@
     <h3 class="title-todo"><%= todo_list.title %></h3>
 
     <span></span>
+    <span>
+      <% if FavoriteTodo.exists? user: current_user, todo_list: todo_list %>
+        <%= link_to dashboard_favorite_todo_path(todo_list.id), method: :delete, remote: true do %>
+          <%= fa_icon "star", class: "fav-check" %>
+        <% end %>
+      <% else %>
+        <%= link_to dashboard_favorite_todos_path(id: todo_list.id), method: :post, remote: true do %>
+          <%= fa_icon "star-o", class: "fav-uncheck" %>
+        <% end %>
+      <% end %>
+    </span>
+
+
   </header>
 
   <section class="task-list current">

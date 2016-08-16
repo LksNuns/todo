@@ -1,6 +1,6 @@
 <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
 <ul id="public_todo_lists">
   <% @todo_lists.each do |todo_list| %>
-    <%= render partial: "todo_list", locals: { todo_list: todo_list } %>
+    <%= render partial: "dashboard/shared/todo_list_public", locals: { todo_list: todo_list } %>
   <% end %>
 </ul>

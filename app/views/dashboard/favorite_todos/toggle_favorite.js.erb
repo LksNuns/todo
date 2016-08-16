@@ -1,0 +1,1 @@
+$("#todo_list_id_<%= @todo_list.id %>").replaceWith("<%= j render partial: 'dashboard/shared/todo_list_public', locals: { todo_list: @todo_list } %>");
