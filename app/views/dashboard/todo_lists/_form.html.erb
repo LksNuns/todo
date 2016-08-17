@@ -1,5 +1,9 @@
 <div class="modal-dialog" role="document">
   <div id="todo-modal-content" class="modal-content">
+
+  <div id='error-form'>
+  </div>
+
     <%= form_for [:dashboard, @todo_list], class:"todo_form", remote: true do |f| %>
       <div class="modal-body">
           <div class="form-group">

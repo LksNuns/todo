@@ -22,7 +22,7 @@ class Dashboard::TodoListsController < Dashboard::ApplicationController
         format.js {}
         format.html { redirect_to dashboard_todo_lists_path, notice: "Nova Lista de tarefas criada" }
       else
-        render "new"
+        format.js { render 'error' }
       end
     end
   end

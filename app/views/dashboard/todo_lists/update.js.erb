@@ -1,1 +1,4 @@
 $("#todo_list_id_<%= @todo_list.id %>").replaceWith('<%= j render(@todo_list) %>');
+$('form')[0].reset();
+$('#tasks').empty();
+$('#todolist-modal').modal('hide');

@@ -1,1 +1,4 @@
 $('<%= j render(@todo_list) %>').prependTo('#todo_lists').hide().fadeIn(1000);
+$('form')[0].reset();
+$('#tasks').empty();
+$('#todolist-modal').modal('hide');

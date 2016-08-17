@@ -1,0 +1,8 @@
+var error = $("#error-form");
+error.addClass("alert alert-danger");
+error.append($("<h2 />").text("<%= pluralize(@todo_list.errors.count, "erro", "erros") %>"));
+error.append($("<ul />"));
+var ul = error.find("ul");
+<% @todo_list.errors.full_messages.each do |message| %>
+ ul.append($("<li />").html("<%= message.html_safe %>"));
+<% end %>
