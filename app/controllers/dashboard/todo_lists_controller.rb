@@ -34,9 +34,11 @@ class Dashboard::TodoListsController < Dashboard::ApplicationController
   end
 
   def update
-    if @todo_list.update(todo_list_params)
-      respond_to do |format|
+    respond_to do |format|
+      if @todo_list.update(todo_list_params)
         format.js {}
+      else
+        format.js { render 'error' }
       end
     end
   end
